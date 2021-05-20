@@ -1,0 +1,39 @@
+.btn{
+  border: none;
+  border-radius: 6px;
+  padding: 5px 16px;
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+  &:after {
+    outline: none;
+  }
+  img {
+    height: 1rem;
+  }
+}
+.btn-nopadding {
+ padding: 0 0;
+}
+.btn-green {
+  background-color: $color-green;
+  color: $color-white;
+}
+.btn {
+  svg {
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+}
+.btn-grey {
+  color: $color-text;
+  background-color: $color-btn-bg;
+  border: 1px solid $color-outline-light;
+  &:hover {
+    background-color: $color-btn-hover;
+  }
+}

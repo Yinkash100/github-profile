@@ -1,0 +1,89 @@
+.header {
+  background-color: $color-black-bg;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+  a:hover{
+    color: $color-white-hover;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    color: $color-white;
+    align-items: center;
+    vertical-align: middle;
+    &-left, &-right {
+      display: flex;
+      align-items: center;
+    }
+    &__logo {
+      margin-right: 16px;
+      &-img {
+        height: 16px;
+        width: auto;
+      }
+    }
+    &__search {
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+      input {
+        width: 272px;
+        height: 30px;
+        border-radius: 6px;
+      }
+      img {
+        top: 5px;
+      }
+    }
+    &__links {
+      display: flex;
+      align-items: center;
+      .link-item {
+        margin-right: 16px;
+      }
+    }
+    &__notification {
+      margin-right: 16px;
+      &--link {
+        position: relative
+      }
+      &--dot {
+        top: -5px;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: $color-blue;
+      }
+    }
+    &__new-repo {
+      margin-right: 16px;
+    }
+    &__profile{
+      &--img {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      svg {
+        fill: $color-white;
+      }
+      svg + svg,
+      img + svg {
+        margin-left: 5px;
+      }
+    }
+    a:hover {
+      svg {
+        fill: $color-white-hover;
+      }
+    }
+  }
+}

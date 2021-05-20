@@ -1,0 +1,41 @@
+.form {
+  &__input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: $color-white;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16.4px;
+    font-family: inherit;
+    padding: 0 12px;
+    background-color: transparent;
+    border: 1px solid $color-outline;
+    display: block;
+    outline: none;
+    border-radius: 6px;
+
+    &:focus {
+      outline: none;
+      background-color: transparent;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-text;
+    }
+  }
+}
+.append__btn{
+  position: relative;
+
+}
+.append__input {
+  width: 100%;
+}
+.append__btn-icon {
+  top: 0;
+  right: 0;
+  min-width: 1.5rem;
+  min-height: 1.2rem;
+  position: absolute;
+  margin-right: 8px;
+}
