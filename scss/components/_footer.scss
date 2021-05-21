@@ -1,9 +1,55 @@
 .footer {
-  padding: 16px;
+  padding: 0 16px;
   max-width: 1280px;
+  margin: 0 auto;
   &-main {
+    display: flex;
+    justify-content: space-between;
     padding: 40px 8px;
     margin-top: 40px;
-    border: 1px solid $color-outline-light;
+    border-top: 1px solid $color-outline-light;
+    color:$color-text-light;
+    @include respond(desktop){
+      display: block;
+      padding: 40px 0;
+    }
+  }
+  &__logo {
+    @include respond(desktop){
+      display: none;
+    }
+    a{
+      fill: $color-text-light;
+      &:hover {
+        fill: $color-text;
+      }
+    }
+  }
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    min-width: 40%;
+    @include respond(desktop){
+      justify-content: center;
+      &:not(last-child){
+        margin-bottom: 8px;
+      }
+    }
+    @include respond(tab-land){
+      flex-wrap: wrap;
+      min-width: auto;
+    }
+    &--item {
+      font-size: 12px;
+      white-space: nowrap;
+      @include respond(desktop){
+        &:not(last-child){
+          margin-right: 16px;
+        }
+      }
+      a{
+        color: $color-blue;
+      }
+    }
   }
 }

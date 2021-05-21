@@ -1,100 +1,66 @@
-window.onload = ()=>{
+window.onload = ()=> {
+    //===toggles the visibility of the navigation dropdowns===//
+    document.getElementById('nav-toggle')
+        .addEventListener('click', ()=>{
+            document.getElementById('mobile-nav').classList.toggle('show-ddown')
+        })
+    document.getElementById('repo-toggle').addEventListener('click', ()=>{
+        document.getElementById('repo-ddown').classList.toggle('hide')
+    })
+    document.getElementById('profile-toggle').addEventListener('click', ()=>{
+        document.getElementById('profile-ddown').classList.toggle('hide')
+    })
 
-}
-/**
-fetch('https://api.github.com/graphql', {
-    method: 'POST',
-    query: `{
-        user(login: "yinkash100") {
-            id
-            name
-            bio
-            avatarUrl
-            url
-            email
-            websiteUrl
-            twitterUsername
-            repositories(last : 15 )
-            {
-                nodes
-                {
-                    name
-                    description
-                    updatedAt
-                }
-            }
+
+    //===toggles the visibility of the repositrory filter dropdown===//
+    document.getElementById('type-select').addEventListener('click', ()=>{
+        document.getElementById('type-ddown').classList.toggle('hide')
+    })
+    document.getElementById('type-ddown-close').addEventListener('click', ()=>{
+        document.getElementById('type-ddown').classList.toggle('hide')
+    })
+
+    document.getElementById('language-filter-toggle').addEventListener('click', ()=>{
+        document.getElementById('language-ddown').classList.toggle('hide')
+    })
+    document.getElementById('language-ddown-close').addEventListener('click', ()=>{
+        document.getElementById('language-ddown').classList.toggle('hide')
+    })
+
+    document.getElementById('sort-filter-toggle').addEventListener('click', ()=>{
+        document.getElementById('sort-ddown').classList.toggle('hide')
+    })
+    document.getElementById('sort-ddown-close').addEventListener('click', ()=> {
+        document.getElementById('sort-ddown').classList.toggle('hide')
+    })
+
+    //======Helps fix the repository nav at certain scroll height==//
+    const tabContainer = document.getElementById('tabs-container');
+    const tabsProfile = document.getElementById('tabs-profile');
+    const tabContainerSM = document.getElementById('tabs-container-sm');
+    window.onscroll = function() {
+
+        // fix or unfix nav tabs on large screen
+        if (window.scrollY > 60) {
+            tabContainer.classList.add("fixed");
+        } else {
+            tabContainer.classList.remove("fixed");
         }
-    }`,
-    headers: {
-        Authorization: 'bearer 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',
-        AccessControlAllowOrigin: "*.*"
-    },
-    mode: "cors"
-}).then(function (response) {
-    // The API call was successful!
-    if (response.ok) {
-        console.log('1  response => ', response);
-        return response.json();
-    } else {
-        console.log('2  response => ', response);
-        return Promise.reject(response);
-    }
-}).then(function (data) {
-    // This is the JSON from our response
-    console.log('data ', data);
-}).catch(function (err) {
-    // There was an error
-    console.warn('Something went wrong.', err);
-});
-*/
 
-const query = `{
-    user(login: "yinkash100") {
-        id
-        name
-        bio
-        avatarUrl
-        url
-        email
-        websiteUrl
-        twitterUsername
-        repositories(last : 15 )
-        {
-            nodes
-            {
-                name
-                description
-                updatedAt
-            }
+        // add/remove profile from fixed tab (large screen)
+        if(window.scrollY > 275){
+            tabsProfile.classList.remove("hide")
         }
-    }
-}`
+        else{
+            tabsProfile.classList.add("hide")
+        }
 
-const http = new XMLHttpRequest();
-const url = 'https://api.github.com/graphql';
-const token = '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'
+        // fix or unfix nav tabs on mobile devices
+        if (window.scrollY > 495) {
+            tabContainerSM.classList.add("fixed");
+        } else {
+            tabContainerSM.classList.remove("fixed");
+        }
+    };
 
-http.open('POST', url, true);
-http.withCredentials = false
-
-http.setRequestHeader('Content-type', 'application/json');
-http.setRequestHeader('Authorization', `bearer ${token}`)
-http.setRequestHeader('mode', 'no-cors')
-http.setRequestHeader('Access-Control-Allow-Origin', "http://127.0.0.1:8080")
-http.setRequestHeader('Access-Control-Allow-Credentials', 'false')
-
-http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        alert(http.responseText);
-    }
-}
-try {
-    http.send(JSON.stringify(query));
-    if (http.status != 200) {
-        console.log(`Error ${http.status}: ${http.statusText}`);
-    } else {
-        console.log('response', http.response);
-    }
-} catch(err) { // instead of onerror
-    console.log("Request failed", err);
 }

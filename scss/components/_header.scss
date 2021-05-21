@@ -3,9 +3,11 @@
   font-size: 14px;
   line-height: 1.5;
   font-weight: 600;
-  a:hover{
+
+  a:hover {
     color: $color-white-hover;
   }
+
   .nav {
     display: flex;
     justify-content: space-between;
@@ -13,42 +15,76 @@
     color: $color-white;
     align-items: center;
     vertical-align: middle;
+    @include respond(tab-land) {
+      display: none;
+    }
+
     &-left, &-right {
       display: flex;
       align-items: center;
     }
+
     &__logo {
       margin-right: 16px;
+
       &-img {
         height: 16px;
         width: auto;
       }
     }
+
     &__search {
       display: flex;
       align-items: center;
       margin-right: 16px;
+
       input {
         width: 272px;
         height: 30px;
         border-radius: 6px;
+        &:focus{
+          background-color: $color-white;
+          color: $color-black-bg;
+        }
+      }
+      input:focus+img{
+        display: none;
       }
       img {
         top: 5px;
       }
     }
+
     &__links {
       display: flex;
       align-items: center;
+
       .link-item {
         margin-right: 16px;
       }
+
+      .link-item.prs {
+        display: block;
+        @include respond(desktop) {
+          display: none;
+        }
+      }
+
+      .link-item.pulls {
+        display: none;
+        @include respond(desktop) {
+          display: block;
+        }
+      }
     }
+
     &__notification {
       margin-right: 16px;
+
       &--link {
         position: relative
       }
+
       &--dot {
         top: -5px;
         right: 0;
@@ -59,31 +95,188 @@
         background-color: $color-blue;
       }
     }
+
     &__new-repo {
       margin-right: 16px;
+      position: relative;
+
     }
-    &__profile{
+
+    &__profile {
+      position: relative;
       &--img {
         height: 20px;
         width: 20px;
         border-radius: 50%;
       }
     }
+
     a {
       display: flex;
       align-items: center;
+
       svg {
         fill: $color-white;
       }
+
       svg + svg,
       img + svg {
         margin-left: 5px;
       }
     }
+
     a:hover {
       svg {
         fill: $color-white-hover;
       }
     }
+
+    &-drop {
+      display: none;
+      @include respond(tab-port) {
+        display: block;
+
+      }
+    }
+    .repo-ddown{
+      color: $color-text;
+      display: block;
+      position: absolute;
+      right: 0;
+      width: 160px;
+      z-index: 20;
+      margin: 8px 0 16px;
+      font-size: 12px;
+      box-shadow: 0 8px 24px rgba(149,157,165,0.2);
+      border-radius: 12px;
+      background-color: $color-white;
+      border: 1px solid $color-outline-light;
+      &-cont {
+        position: relative;
+      }
+      &-group {
+        padding: 8px 0;
+      }
+      &-item {
+        padding: 4px 8px 4px 16px;
+        cursor: pointer;
+        &:hover {
+          color: $color-white;
+          background-color: $color-blue;
+        }
+      }
+      &-arrow{
+        position: absolute;
+        top: -10px;
+        right: 14px;
+      }
+    }
+    .repo-ddown2{
+      width: 178px;
+      font-weight: normal;
+      .divider {
+        margin: 8px 0;
+        width: 100%;
+        border-top: 1px solid $color-outline-light;
+      }
+      .login {
+        padding: 8px 16px;
+      }
+      .location {
+        margin: 0 16px;
+        &-content {
+          display: block;
+          padding: 4px 8px;
+          border: 1px solid $color-outline-light;
+          white-space: nowrap;
+          border-radius: 6px;
+        }
+        img{
+          height: 14px;
+          width: 14px;
+          margin-right: 4px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .mnav {
+    display: none;
+    justify-content: space-between;
+    padding: 16px;
+    color: $color-white;
+    align-items: center;
+    vertical-align: middle;
+    @include respond(tab-land) {
+      display: flex;
+    }
+    svg {
+      fill: $color-white;
+      &:hover {
+        fill: $color-grey-bg;
+      }
+    }
+    &-drop {
+      &-icon {
+        fill: $color-white;
+      }
+
+      &-icon.show-ddown {
+        fill: $color-white-hover;
+      }
+    }
+    &__logo {
+      svg {
+        fill: $color-white;
+        &:hover {
+          fill: $color-white-hover;
+        }
+      }
+    }
+    &__search{
+      margin-bottom: 16px;
+      input {
+        height: 30px;
+        border-radius: 6px;
+        color: $color-white;
+        &:focus{
+          background-color: $color-white;
+          color: $color-black-bg;
+        }
+      }
+      input:focus+img{
+          display: none;
+      }
+      img {
+        top: 5px;
+      }
+    }
+    &__links {
+      display: block;
+      .link-item{
+        padding: 8px 0;
+        white-space: nowrap;
+        font-weight: 600;
+        color: $color-white;
+        // border-top: 1px solid $color-outline-light;
+        border-top: 1px solid #e1e4e8;
+        // border-top: $color-outline-light;
+        svg {
+          fill: $color-white;
+        }
+      }
+    }
+  }
+  .ddown {
+    display: none;
+    width: 100%;
+    background-color: $color-black-bg;
+    padding: 0 16px 16px;
+  }
+  .repo-ddown.hide{
+    display: none;
+  }
+  .ddown.show-ddown{
+    display: block;
   }
 }

@@ -9,7 +9,7 @@
 @import "components/header";
 @import "components/footer";
 
-@import "pages/home";
+@import "pages/repository";
 
 *,
 *::after,
@@ -29,6 +29,7 @@ body{
   scroll-behavior: smooth;
   line-height: 1.5;
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 a {
