@@ -400,6 +400,9 @@
         border-radius: 12px;
         background-color: $color-white;
         border: 1px solid $color-outline-light;
+        @include respond(tab-land){
+          left: 0;
+        }
         @include respond(tab-port){
           position: absolute;
           top: 50%;

@@ -840,6 +840,11 @@
   background-color: #ffffff;
   border: 1px solid #e1e4e8;
 }
+@media (max-width: 765px) {
+  .repos__head--filters .ppop {
+    left: 0;
+  }
+}
 @media (max-width: 600px) {
   .repos__head--filters .ppop {
     position: absolute;
